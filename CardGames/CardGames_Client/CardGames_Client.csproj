@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1E5AAB3C-9413-4743-B4B2-8ECD43814AA3}</ProjectGuid>
+    <ProjectGuid>{890F50F8-F1C1-4C0F-AEF7-5CFF330A8B34}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CardGames_Server</RootNamespace>
-    <AssemblyName>CardGames_Server</AssemblyName>
+    <RootNamespace>CardGames_Client</RootNamespace>
+    <AssemblyName>CardGames_Client</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,6 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Card.cs" />
+    <Compile Include="Classes\MVC\Controller.cs" />
+    <Compile Include="Classes\MVC\IController.cs" />
+    <Compile Include="Classes\MVC\IView.cs" />
+    <Compile Include="Classes\MVC\IModel.cs" />
+    <Compile Include="Classes\MVC\ConsoleView.cs" />
+    <Compile Include="Classes\MVC\Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

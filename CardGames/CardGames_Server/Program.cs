@@ -16,16 +16,18 @@ namespace CardGames_Server
             Console.Title = "CardGames Server";
             TcpListener server = new TcpListener(IPAddress.Parse("127.0.0.1"), 13137);
             server.Start();
-            List<TcpClient> players = new List<TcpClient>();
+            Dictionary<string, TcpClient> players = new Dictionary<string, TcpClient>();
+            Random random = new Random();
 
             while (true)
             {
                 TcpClient client = server.AcceptTcpClient();
-                players.Add(client);
+                int id = random.Next(1000000000, int.MaxValue);
+                players.Add(id.ToString(), client);
                 NetworkStream stream = client.GetStream();
                 NetworkManager networkManager = new NetworkManager(stream);
-                networkManager.SendMessage($"PLAYERID:{players.IndexOf(client)}");
-                Console.WriteLine($"Player connected with id {players.IndexOf(client)}");
+                networkManager.SendMessage($"CARDPLAYERID:{id}");
+                Console.WriteLine($"Player connected with id {id}");
             }
         }
     }
